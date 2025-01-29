@@ -14,6 +14,8 @@ db.firestore = () => { return getFirestore(db) };
 
 //Routes
 const mobilityRoutes = require('./routes/mobility.js');
+const defaultRoutes = require('./routes/index.js');
 
 //Endpoints
-exports.mobility = functions.https.onRequest((req, res) => auth(req, res, db, env, mobilityRoutes));
+exports.mobility = functions.https.onRequest((req, res) => auth({ req, res, db, env, next: mobilityRoutes }));
+exports.displacement = functions.https.onRequest((req, res) => auth({ req, res, db, env, controller: 'displacement', next: defaultRoutes }));

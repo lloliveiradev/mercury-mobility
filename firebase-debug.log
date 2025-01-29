@@ -1,0 +1,886 @@
+[debug] [2025-01-28T23:44:46.895Z] ----------------------------------------------------------------------
+[debug] [2025-01-28T23:44:46.900Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lloli\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2025-01-28T23:44:46.900Z] CLI Version:   13.24.2
+[debug] [2025-01-28T23:44:46.901Z] Platform:      win32
+[debug] [2025-01-28T23:44:46.901Z] Node Version:  v18.12.1
+[debug] [2025-01-28T23:44:46.903Z] Time:          Tue Jan 28 2025 20:44:46 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2025-01-28T23:44:46.904Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-28T23:44:47.158Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-28T23:44:47.159Z] > authorizing via signed-in user (leonardo@apoiotech.com.br)
+[debug] [2025-01-28T23:44:47.159Z] [iam] checking project mercurio-mobilidade for permissions ["firebase.projects.get"]
+[debug] [2025-01-28T23:44:47.160Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:47.161Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:47.163Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mercurio-mobilidade:testIamPermissions [none]
+[debug] [2025-01-28T23:44:47.163Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mercurio-mobilidade:testIamPermissions x-goog-quota-user=projects/mercurio-mobilidade
+[debug] [2025-01-28T23:44:47.163Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mercurio-mobilidade:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-01-28T23:44:48.042Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mercurio-mobilidade:testIamPermissions 200
+[debug] [2025-01-28T23:44:48.043Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mercurio-mobilidade:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-01-28T23:44:48.044Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:48.045Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:48.046Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade [none]
+[debug] [2025-01-28T23:44:48.458Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade 200
+[debug] [2025-01-28T23:44:48.458Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade {"projectId":"mercurio-mobilidade","projectNumber":"824358178924","displayName":"mercurio-mobilidade","name":"projects/mercurio-mobilidade","resources":{"hostingSite":"mercurio-mobilidade"},"state":"ACTIVE","etag":"1_dd892d54-eb59-4ec7-a76b-4c6205870bdf"}
+[info] 
+[info] === Serving from 'C:\Projetos\Extra\mercury-mobility'...
+[info] 
+[debug] [2025-01-28T23:44:48.468Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:48.469Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:48.472Z] defaultcredentials: writing to file C:\Users\lloli\AppData\Roaming\firebase\leonardo_apoiotech_com.br_application_default_credentials.json
+[debug] [2025-01-28T23:44:48.472Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/mercurio-mobilidade/sites 
+[debug] [2025-01-28T23:44:48.478Z] Setting GAC to C:\Users\lloli\AppData\Roaming\firebase\leonardo_apoiotech_com.br_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\lloli\\AppData\\Roaming\\firebase\\leonardo_apoiotech_com.br_application_default_credentials.json"}}
+[debug] [2025-01-28T23:44:48.479Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:48.480Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:48.480Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade/adminSdkConfig [none]
+[debug] [2025-01-28T23:44:48.866Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade/adminSdkConfig 200
+[debug] [2025-01-28T23:44:48.866Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade/adminSdkConfig {"projectId":"mercurio-mobilidade","storageBucket":"mercurio-mobilidade.firebasestorage.app"}
+[debug] [2025-01-28T23:44:49.549Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/mercurio-mobilidade/sites 200
+[debug] [2025-01-28T23:44:49.549Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/mercurio-mobilidade/sites {"sites":[{"name":"projects/mercurio-mobilidade/sites/mercurio-mobilidade","defaultUrl":"https://mercurio-mobilidade.web.app","appId":"1:824358178924:web:3eaf2825a2468a57ba0849","type":"DEFAULT_SITE"}]}
+[debug] [2025-01-28T23:44:49.550Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:49.550Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:49.550Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade/webApps/1:824358178924:web:3eaf2825a2468a57ba0849/config [none]
+[debug] [2025-01-28T23:44:50.276Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade/webApps/1:824358178924:web:3eaf2825a2468a57ba0849/config 200
+[debug] [2025-01-28T23:44:50.276Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade/webApps/1:824358178924:web:3eaf2825a2468a57ba0849/config {"projectId":"mercurio-mobilidade","appId":"1:824358178924:web:3eaf2825a2468a57ba0849","storageBucket":"mercurio-mobilidade.firebasestorage.app","apiKey":"AIzaSyDcmBJwigLaBfPFZpKz4fhQcGbGFLVGb50","authDomain":"mercurio-mobilidade.firebaseapp.com","messagingSenderId":"824358178924"}
+[debug] [2025-01-28T23:44:50.286Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:50.286Z] Checked if tokens are valid: true, expires at: 1738111349068
+[debug] [2025-01-28T23:44:50.287Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade [none]
+[debug] [2025-01-28T23:44:50.698Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade 200
+[debug] [2025-01-28T23:44:50.698Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mercurio-mobilidade {"projectId":"mercurio-mobilidade","projectNumber":"824358178924","displayName":"mercurio-mobilidade","name":"projects/mercurio-mobilidade","resources":{"hostingSite":"mercurio-mobilidade"},"state":"ACTIVE","etag":"1_dd892d54-eb59-4ec7-a76b-4c6205870bdf"}
+[info] i  functions: Watching "C:\Projetos\Extra\mercury-mobility\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Projetos\\Extra\\mercury-mobility\\functions\" for Cloud Functions..."}}
+[info] i  hosting[mercurio-mobilidade]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[mercurio-mobilidade]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[debug] [2025-01-28T23:44:50.730Z] Validating nodejs source
+[debug] [2025-01-28T23:44:52.895Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-28T23:44:52.895Z] Building nodejs source
+[debug] [2025-01-28T23:44:52.896Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-28T23:44:52.900Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-28T23:44:52.912Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8278
+
+[error] Error: Cannot find module 'pg'
+Require stack:
+- C:\Projetos\Extra\mercury-mobility\functions\repository\postgree.js
+- C:\Projetos\Extra\mercury-mobility\functions\models\mobility.js
+- C:\Projetos\Extra\mercury-mobility\functions\controllers\mobility.js
+- C:\Projetos\Extra\mercury-mobility\functions\routes\mobility.js
+- C:\Projetos\Extra\mercury-mobility\functions\index.js
+- C:\Projetos\Extra\mercury-mobility\functions\node_modules\firebase-functions\lib\runtime\loader.js
+- C:\Projetos\Extra\mercury-mobility\functions\node_modules\firebase-functions\lib\bin\firebase-functions.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+    at Module._load (node:internal/modules/cjs/loader:841:27)
+    at Module.require (node:internal/modules/cjs/loader:1061:19)
+    at require (node:internal/modules/cjs/helpers:103:18)
+    at Object.<anonymous> (C:\Projetos\Extra\mercury-mobility\functions\repository\postgree.js:1:26)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Module.require (node:internal/modules/cjs/loader:1061:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Projetos\\Extra\\mercury-mobility\\functions\\repository\\postgree.js',
+    'C:\\Projetos\\Extra\\mercury-mobility\\functions\\models\\mobility.js',
+    'C:\\Projetos\\Extra\\mercury-mobility\\functions\\controllers\\mobility.js',
+    'C:\\Projetos\\Extra\\mercury-mobility\\functions\\routes\\mobility.js',
+    'C:\\Projetos\\Extra\\mercury-mobility\\functions\\index.js',
+    'C:\\Projetos\\Extra\\mercury-mobility\\functions\\node_modules\\firebase-functions\\lib\\runtime\\loader.js',
+    'C:\\Projetos\\Extra\\mercury-mobility\\functions\\node_modules\\firebase-functions\\lib\\bin\\firebase-functions.js'
+  ]
+}
+
+[debug] [2025-01-28T23:44:54.758Z] Got response code 400; body Failed to generate manifest from function source: Error: Cannot find module 'pg'
+Require stack:
+- C:\Projetos\Extra\mercury-mobility\functions\repository\postgree.js
+- C:\Projetos\Extra\mercury-mobility\functions\models\mobility.js
+- C:\Projetos\Extra\mercury-mobility\functions\controllers\mobility.js
+- C:\Projetos\Extra\mercury-mobility\functions\routes\mobility.js
+- C:\Projetos\Extra\mercury-mobility\functions\index.js
+- C:\Projetos\Extra\mercury-mobility\functions\node_modules\firebase-functions\lib\runtime\loader.js
+- C:\Projetos\Extra\mercury-mobility\functions\node_modules\firebase-functions\lib\bin\firebase-functions.js
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-01-28T23:45:38.372Z] File C:\Projetos\Extra\mercury-mobility\functions\package-lock.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\package-lock.json changed, reloading triggers"}}
+[debug] [2025-01-28T23:45:38.378Z] File C:\Projetos\Extra\mercury-mobility\functions\package.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\package.json changed, reloading triggers"}}
+[debug] [2025-01-28T23:45:39.381Z] Validating nodejs source
+[debug] [2025-01-28T23:45:41.609Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-28T23:45:41.609Z] Building nodejs source
+[debug] [2025-01-28T23:45:41.610Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-28T23:45:41.612Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-28T23:45:41.622Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8248
+
+[error] C:\Projetos\Extra\mercury-mobility\functions\routes\index.js:2
+    const controller = require(`../controllers/${controller}.js`);
+          ^^^^^^^^^^
+
+SyntaxError: Identifier 'controller' has already been declared
+    at Object.compileFunction (node:vm:360:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1088:15)
+    at Module._compile (node:internal/modules/cjs/loader:1123:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+    at Module.load (node:internal/modules/cjs/loader:1037:32)
+    at Module._load (node:internal/modules/cjs/loader:878:12)
+    at Module.require (node:internal/modules/cjs/loader:1061:19)
+    at require (node:internal/modules/cjs/helpers:103:18)
+    at Object.<anonymous> (C:\Projetos\Extra\mercury-mobility\functions\index.js:17:23)
+    at Module._compile (node:internal/modules/cjs/loader:1159:14)
+
+[debug] [2025-01-28T23:45:43.666Z] Got response code 400; body Failed to generate manifest from function source: SyntaxError: Identifier 'controller' has already been declared
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-01-28T23:46:15.111Z] File C:\Projetos\Extra\mercury-mobility\functions\routes\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\routes\\index.js changed, reloading triggers"}}
+[debug] [2025-01-28T23:46:16.113Z] Validating nodejs source
+[debug] [2025-01-28T23:46:18.157Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-28T23:46:18.157Z] Building nodejs source
+[debug] [2025-01-28T23:46:18.157Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-28T23:46:18.158Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-28T23:46:18.166Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8563
+
+[debug] [2025-01-28T23:46:20.002Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[info] +  functions[us-central1-mobility]: http function initialized (http://localhost:5001/mercurio-mobilidade/us-central1/mobility). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/mercurio-mobilidade/us-central1/mobility)."}}
+[info] +  functions[us-central1-displacement]: http function initialized (http://localhost:5001/mercurio-mobilidade/us-central1/displacement). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/mercurio-mobilidade/us-central1/displacement)."}}
+[debug] [2025-01-28T23:50:38.585Z] File C:\Projetos\Extra\mercury-mobility\functions\models\cities_displacement\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\models\\cities_displacement\\index.js changed, reloading triggers"}}
+[debug] [2025-01-28T23:50:39.593Z] Validating nodejs source
+[debug] [2025-01-28T23:50:41.642Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-28T23:50:41.642Z] Building nodejs source
+[debug] [2025-01-28T23:50:41.642Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-28T23:50:41.644Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-28T23:50:41.654Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8817
+
+[debug] [2025-01-28T23:50:43.376Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-28T23:55:08.895Z] File C:\Projetos\Extra\mercury-mobility\functions\scripts\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\scripts\\index.js changed, reloading triggers"}}
+[debug] [2025-01-28T23:55:09.896Z] Validating nodejs source
+[debug] [2025-01-28T23:55:12.197Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-28T23:55:12.197Z] Building nodejs source
+[debug] [2025-01-28T23:55:12.197Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-28T23:55:12.199Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-28T23:55:12.211Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8553
+
+[debug] [2025-01-28T23:55:14.161Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-28T23:57:09.331Z] File C:\Projetos\Extra\mercury-mobility\functions\scripts\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\scripts\\index.js changed, reloading triggers"}}
+[debug] [2025-01-28T23:57:10.337Z] Validating nodejs source
+[debug] [2025-01-28T23:57:12.396Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-28T23:57:12.397Z] Building nodejs source
+[debug] [2025-01-28T23:57:12.397Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-28T23:57:12.398Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-28T23:57:12.407Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8474
+
+[debug] [2025-01-28T23:57:14.197Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-28T23:58:09.693Z] File C:\Projetos\Extra\mercury-mobility\functions\scripts\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\scripts\\index.js changed, reloading triggers"}}
+[debug] [2025-01-28T23:58:10.702Z] Validating nodejs source
+[debug] [2025-01-28T23:58:12.851Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-28T23:58:12.853Z] Building nodejs source
+[debug] [2025-01-28T23:58:12.853Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-28T23:58:12.855Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-28T23:58:12.865Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8466
+
+[debug] [2025-01-28T23:58:14.894Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:00:05.588Z] File C:\Projetos\Extra\mercury-mobility\functions\models\cities_displacement\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\models\\cities_displacement\\index.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:00:06.599Z] Validating nodejs source
+[debug] [2025-01-29T00:00:08.707Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:00:08.707Z] Building nodejs source
+[debug] [2025-01-29T00:00:08.707Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:00:08.708Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:00:08.715Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8736
+
+[debug] [2025-01-29T00:00:10.547Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:02:54.602Z] File C:\Projetos\Extra\mercury-mobility\functions\models\cities_displacement\scripts\select.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\models\\cities_displacement\\scripts\\select.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:02:55.614Z] Validating nodejs source
+[debug] [2025-01-29T00:02:57.906Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:02:57.906Z] Building nodejs source
+[debug] [2025-01-29T00:02:57.906Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:02:57.907Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:02:57.923Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8468
+
+[debug] [2025-01-29T00:03:00.322Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:03:05.570Z] File C:\Projetos\Extra\mercury-mobility\functions\models\cities_displacement\scripts.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\models\\cities_displacement\\scripts.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:03:06.584Z] Validating nodejs source
+[debug] [2025-01-29T00:03:08.912Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:03:08.913Z] Building nodejs source
+[debug] [2025-01-29T00:03:08.913Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:03:08.916Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:03:08.929Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8170
+
+[debug] [2025-01-29T00:03:11.450Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:05:01.316Z] File C:\Projetos\Extra\mercury-mobility\functions\models\cities_displacement\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\models\\cities_displacement\\index.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:05:02.320Z] Validating nodejs source
+[debug] [2025-01-29T00:05:05.269Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:05:05.269Z] Building nodejs source
+[debug] [2025-01-29T00:05:05.269Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:05:05.271Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:05:05.280Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[debug] [2025-01-29T00:05:05.289Z] File C:\Projetos\Extra\mercury-mobility\functions\scripts\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\scripts\\index.js changed, reloading triggers"}}
+[info] Serving at port 8517
+
+[debug] [2025-01-29T00:05:06.297Z] Validating nodejs source
+[debug] [2025-01-29T00:05:08.381Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:05:08.381Z] Building nodejs source
+[debug] [2025-01-29T00:05:08.381Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:05:08.383Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:05:08.390Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[debug] [2025-01-29T00:05:08.396Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[info] Serving at port 8877
+
+[debug] [2025-01-29T00:05:10.160Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:05:38.715Z] File C:\Projetos\Extra\mercury-mobility\functions\repository\postgree.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\repository\\postgree.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:05:39.727Z] Validating nodejs source
+[debug] [2025-01-29T00:05:41.845Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:05:41.846Z] Building nodejs source
+[debug] [2025-01-29T00:05:41.846Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:05:41.847Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:05:41.856Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8310
+
+[debug] [2025-01-29T00:05:43.782Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:06:46.286Z] File C:\Projetos\Extra\mercury-mobility\functions\repository\postgree.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\repository\\postgree.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:06:47.291Z] Validating nodejs source
+[debug] [2025-01-29T00:06:49.489Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:06:49.489Z] Building nodejs source
+[debug] [2025-01-29T00:06:49.489Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:06:49.490Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:06:49.502Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8188
+
+[debug] [2025-01-29T00:06:51.404Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:07:49.542Z] File C:\Projetos\Extra\mercury-mobility\functions\scripts\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\scripts\\index.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:07:50.550Z] Validating nodejs source
+[debug] [2025-01-29T00:07:52.896Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:07:52.896Z] Building nodejs source
+[debug] [2025-01-29T00:07:52.896Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:07:52.897Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:07:52.906Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8002
+
+[debug] [2025-01-29T00:07:55.025Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:08:30.179Z] File C:\Projetos\Extra\mercury-mobility\functions\repository\postgree.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\repository\\postgree.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:08:31.183Z] Validating nodejs source
+[debug] [2025-01-29T00:08:33.400Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:08:33.400Z] Building nodejs source
+[debug] [2025-01-29T00:08:33.400Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:08:33.401Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:08:33.410Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8295
+
+[debug] [2025-01-29T00:08:35.337Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:08:49.586Z] File C:\Projetos\Extra\mercury-mobility\functions\repository\postgree.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\repository\\postgree.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:08:50.597Z] Validating nodejs source
+[debug] [2025-01-29T00:08:52.618Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:08:52.618Z] Building nodejs source
+[debug] [2025-01-29T00:08:52.619Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:08:52.620Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:08:52.630Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8047
+
+[debug] [2025-01-29T00:08:54.508Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:13:48.651Z] File C:\Projetos\Extra\mercury-mobility\functions\env.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\env.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:13:49.658Z] Validating nodejs source
+[debug] [2025-01-29T00:13:51.869Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:13:51.869Z] Building nodejs source
+[debug] [2025-01-29T00:13:51.869Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:13:51.871Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:13:51.884Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8736
+
+[debug] [2025-01-29T00:13:53.883Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}
+[debug] [2025-01-29T00:14:44.317Z] File C:\Projetos\Extra\mercury-mobility\functions\env.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Projetos\\Extra\\mercury-mobility\\functions\\env.js changed, reloading triggers"}}
+[debug] [2025-01-29T00:14:45.324Z] Validating nodejs source
+[debug] [2025-01-29T00:14:47.474Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "json-object-merge": "^1.2.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-29T00:14:47.474Z] Building nodejs source
+[debug] [2025-01-29T00:14:47.475Z] Failed to find version of module node: reached end of search path C:\Projetos\Extra\mercury-mobility\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2025-01-29T00:14:47.476Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-29T00:14:47.485Z] Found firebase-functions binary at 'C:\Projetos\Extra\mercury-mobility\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8069
+
+[debug] [2025-01-29T00:14:49.684Z] Got response from /__/functions.yaml {"endpoints":{"mobility":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"mobility"},"displacement":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"displacement"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: mobility, displacement. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: mobility, displacement."}}

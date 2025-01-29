@@ -1,12 +1,14 @@
-const Repository = require('../repository/repository');
+const Firestore = require('../repository/firestore');
+const Postegree = require('../repository/postgree');
 const CustomError = require('../utils/customError');
 
-class Category {
+class Mobility {
     constructor(data, db, reqUser) {
         this.id = data.id || null;
         this.data = this.model(data);
         this.new = id ? false : true;
-        this.db = new Repository(db, 'categories');
+        this.pg = new Postegree(db);
+        this.db = new Firestore(db, 'mobility');
         this.reqUser = reqUser || { name: 'WebService', value: '0097' };
 
         this.contract = {
@@ -127,4 +129,4 @@ class Category {
     };
 };
 
-module.exports = Category;
+module.exports = Mobility;

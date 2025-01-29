@@ -1,10 +1,10 @@
-function auth(req, res, db, env, next) {
-    if (req.headers.auth != 'TOKEN') {
+function auth(req, res, db, env, controller, next) {
+    if (req.headers.Authorization != 'Bearer TOKEN') {
         return res.status(403).send({
-            "message": "Você não está autorizado a executar esta ação!"
+            "message": "Você não está autorizado a acessar esta função!"
         });
     }
-    next(req, res, db, env);
+    next(req, res, db, env, controller);
 };
 
 module.exports = auth;
