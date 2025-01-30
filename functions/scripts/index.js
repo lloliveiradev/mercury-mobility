@@ -1,7 +1,7 @@
 const Displacement = require("../models/cities_displacement");
 const Postegre = require("../repository/postgree");
 const credentials = require('../../firebase/credentials.json');
-const env = require("../env");
+const env = require("../../engine/env.js");
 const scripts = require("../models/cities_displacement/scripts.js");
 
 const user = { rowid: '0097', name: 'WebService' };

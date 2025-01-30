@@ -4,7 +4,7 @@ const { initializeApp, cert } = require("firebase-admin/app");
 
 //Repository
 const credentials = require('../firebase/credentials.json');
-const env = require('./env.js');
+const env = require('../engine/env.js');
 env.fs = initializeApp({ credential: cert(credentials) });
 env.fs.firestore = getFirestore();
 
