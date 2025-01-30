@@ -6,8 +6,9 @@ class DisplacementCtrl {
         try {
             const data = req.body;
             const cls = new Displacement(env);
+            cls.data = data;
             validateContract(cls);
-            const result = await cls.create(data);
+            const result = await cls.add(data);
             return res.status(200).json({ id: result });
         } catch (error) {
             return res.status(error?.status || 500).json({ message: error.message });
@@ -37,8 +38,9 @@ class DisplacementCtrl {
     async put({ req, res, env }) {
         try {
             const data = req.body;
-            if (!data.rowid) return res.status(400).json({ message: "Inform a mobility id!" });
+            if (!data.rowid) return res.status(400).json({ message: "Inform a displacement id!" });
             const cls = new Displacement(env);
+            cls.data = data;
             validateContract(cls, true);
             data.edited_by = req.user.info.name;
             const result = await cls.update(data);
@@ -51,7 +53,7 @@ class DisplacementCtrl {
     async delete({ req, res, env }) {
         try {
             const query = req.query;
-            if (!query.rowid) return res.status(400).json({ message: "Inform a mobility id!" });
+            if (!query.rowid) return res.status(400).json({ message: "Inform a displacement id!" });
             const cls = new Displacement(env);
             query.edited_by = req.user.info.name;
             const result = await cls.delete(query);

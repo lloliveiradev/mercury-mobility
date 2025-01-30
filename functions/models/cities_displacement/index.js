@@ -1,12 +1,17 @@
 const CustomError = require("../../utils/customError");
 const JSONObjectMerge = require("json-object-merge");
 const Postegre = require("../../repository/postgree");
+const Firestore = require("../../repository/firestore");
 const scripts = require("./scripts.js");
+const { defaultFields } = require("../../utils/utils.js");
 const { validateContract } = require("../../utils/validations");
 
 class Displacement {
     constructor(env) {
-        this.db = new Postegre(env);
+        this.collection = 'cities_displacement';
+        this.pg = new Postegre(env.pg);
+        this.fs = new Firestore(env.fs, this.collection);
+
         this.contract = {
             city_id: { required: true, type: 'number' },
             city: { required: true, type: 'string', max: 255 },
@@ -21,47 +26,128 @@ class Displacement {
         };
     };
 
+    /**
+     * Directs the creation to the chosen database
+     * @param {'fs'|'pg'} db 
+     */
+    async create(db, { data, user }) {
+        if (db == 'fs') return await this.add(data, user);
+        if (db == 'pg') return await this.insert(data);
+    };
+    async add(data, user) {
+        try {
+            this.data = data;
+            validateContract(this);
+            const obj = this.model(data);
+            await this.fs.add(obj, user);
+        } catch (error) {
+            throw new CustomError({ message: `@displacement-add: ${error.message}`, status: 500 });
+        };
+    };
     async insert(data) {
         try {
+            this.data = data;
             validateContract(this);
             const values = Object.values(this.model(data));
-            await this.db.query(scripts.insert, values);
+            await this.pg.query(scripts.insert, values);
         } catch (error) {
-            throw new CustomError(`@displacement-insert: ${error.message}`, 500);
+            throw new CustomError({ message: `@displacement-insert: ${error.message}`, status: 500 });
         };
     };
 
+
+    /**
+     * Directs the read to the chosen database
+     * @param {'fs'|'pg'} db 
+     */
+    async read(db, { rowid, options, scriptName, values }) {
+        if (db == 'fs') return await this.get(rowid, options);
+        if (db == 'pg') return await this.select(scriptName, values);
+        return null;
+    };
+    async get(rowid = null, options = {}) {
+        try {
+            if (rowid) {
+                const data = await this.fs.get(rowid);
+                return data;
+            };
+
+            const records = await this.fs.getWhere(options);
+            return records;
+        } catch (error) {
+            if (error.message == "Record not found") return false;
+            throw new CustomError({ message: `@displacement-get: ${error.message}`, status: 500 });
+        };
+    };
     async select(scriptName, values) {
         try {
-            return await this.db.query(scripts[scriptName], values);
+            const rows = await this.pg.query(scripts[scriptName], values);
+            return rows;
         } catch (error) {
-            throw new CustomError(`@displacement-select: ${error.message}`, 500);
+            throw new CustomError({ message: `@displacement-select: ${error.message}`, status: 500 });
         };
     };
 
+
+    /**
+     * Directs the modification to the chosen database
+     * @param {'fs'|'pg'} db 
+     * @param {Object} options
+     */
+    async alter(db, { data, user }) {
+        if (db == 'fs') return await this.set(data, user);
+        if (db == 'pg') return await this.update(data);
+    };
+    async set(data, user, merge = true) {
+        try {
+            this.data = data;
+            validateContract(this);
+            const obj = this.model(data);
+            await this.fs.set(data.rowid, obj, user, merge);
+        } catch (error) {
+            throw new CustomError({ message: `@displacement-set: ${error.message}`, status: 500 });
+        };
+    };
     async update(data) {
         try {
+            this.data = data;
             validateContract(this);
             this.rowid = data?.rowid || null;
             const values = Object.values(this.model(data));
-            await this.db.query(scripts.update, values);
+            await this.pg.query(scripts.update, values);
         } catch (error) {
-            throw new CustomError(`@displacement-update: ${error.message}`, 500);
+            throw new CustomError({ message: `@displacement-update: ${error.message}`, status: 500 });
         };
     };
 
-    async delete() {
+
+    /**
+     * Directs the erasure to the chosen database
+     * @param {'fs'|'pg'} db 
+     */
+    async erase(db, { rowid, user, real }) {
+        if (db == 'fs') return await this.remove(rowid, user, real);
+        if (db == 'pg') return await this.delete([rowid]);
+    };
+    async remove(rowid, user, real = false) {
         try {
-            await this.db.query(scripts.delete, values);
+            await this.fs.delete(rowid, user, real);
         } catch (error) {
-            throw new CustomError(`@displacement-delete: ${error.message}`, 500);
+            throw new CustomError({ message: `@displacement-remove: ${error.message}`, status: 500 });
         };
     };
+    async delete(values) {
+        try {
+            await this.pg.query(scripts.delete, values);
+        } catch (error) {
+            throw new CustomError({ message: `@displacement-delete: ${error.message}`, status: 500 });
+        };
+    };
+
 
     /**
      * Format default object
      * @param {Object} data 
-     * @param {Number} data.rowid integer
      * @param {Number} data.city_id integer
      * @param {String} data.city varchar(255)
      * @param {String} data.state varchar(2)
@@ -71,13 +157,12 @@ class Displacement {
      * @param {Number} data.avg_time float
      * @param {Number} data.percent_above_1h float
      * @param {Number} data.sensus_year integer
-     * @param {String} data.edited_by varchar(100)
      * 
      * @returns {Object} formatted
      */
     model(data) {
         const obj = {
-            rowid: null,
+            ...defaultFields,
             city_id: null,
             city: null,
             state: null,
@@ -87,20 +172,18 @@ class Displacement {
             avg_time: null,
             percent_above_1h: null,
             sensus_year: null,
-            created_at: null,
-            updated_at: null,
-            deleted_at: null,
-            edited_by: null,
         };
         const formatted = JSONObjectMerge.default(obj, data);
-        if (!this.rowid) {
+
+        if (data.rowid) {
             for (const key in formatted) {
                 if (Object.prototype.hasOwnProperty.call(formatted, key)) {
                     const el = formatted[key];
-                    if (!el) delete formatted[key]
+                    if (!el) delete formatted[key];
                 };
             };
         };
+
         return formatted;
     };
 };

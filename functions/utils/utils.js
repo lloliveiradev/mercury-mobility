@@ -149,6 +149,17 @@ function treatValues(val, key, numberExceptions) {
     };
 };
 
+const defaultFields = {
+    "rowid": null,
+    "created_at": null,
+    "created_by": null,
+    "updated_at": null,
+    "updated_by": null,
+    "deleted": false,
+    "deleted_at": null,
+    "deleted_by": null,
+};
+
 module.exports = {
     pathToValue,
     localeUs,
@@ -162,5 +173,6 @@ module.exports = {
     validateEmail,
     validateRequired,
     validateConditional,
-    treatValues
+    treatValues,
+    defaultFields
 };

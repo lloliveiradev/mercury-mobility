@@ -1,2 +1,3 @@
-firebase/credentials.js
 database/cities_displacement.json
+functions/env.js
+firebase/credentials.json

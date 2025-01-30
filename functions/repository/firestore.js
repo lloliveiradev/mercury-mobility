@@ -16,13 +16,11 @@ class Firestore {
      */
     async add(data, user) {
         try {
-            data.creation = {
-                user: user,
-                date: dateNow()
-            };
+            data.created_at = dateNow();
+            data.created_by = user;
 
             const { id } = await this.db.collection(this.collection).add(data);
-            this.db.collection(this.collection).doc(id).set({ id }, { merge });
+            this.db.collection(this.collection).doc(id).set({ rowid: id }, { merge: true });
             return id;
         } catch (error) {
             throw error;
@@ -39,10 +37,8 @@ class Firestore {
      */
     async set(id, data, user, merge = true) {
         try {
-            data.update = {
-                user: user,
-                date: dateNow()
-            };
+            data.updated_at = dateNow();
+            data.updated_by = user;
             await this.db.collection(this.collection).doc(String(id)).set(data, { merge });
         } catch (error) {
             throw error;
@@ -169,10 +165,8 @@ class Firestore {
             } else {
                 const obj = {
                     deleted: true,
-                    deletion: {
-                        user,
-                        date: dateNow()
-                    }
+                    deleted_at: dateNow(),
+                    deleted_by: user,
                 };
                 await this.db.collection(this.collection).doc(String(id)).set(obj, { merge: true });
             };
@@ -184,15 +178,20 @@ class Firestore {
     /**
      * Group the records according with the where params
      * 
-     * @param {'avg'|'count'|'sum'} type
+     * @param {'avg'|'count'|'sum'|Array<String>} type
      * @param {Array.<{key: String, operation: String, value: String}>} params
      * @param {Array.<String>} fields field names, the values most be numbers
      * @returns {Promise<Number>}
      */
     async aggregate(type, params, fields) {
         try {
-            if (!Array.isArray(params)) throw new CustomError({ message: 'Params most be an objects array', status: 400 });
+            if (!type?.length) throw new CustomError({ message: 'Inform an aggregation type.', status: 400 });
+            const types = Array.isArray(type) ? type : [type];
+            if (types?.filter(t => ![`average`, `count`, `sum`].includes(t))?.length) throw new CustomError({ message: 'Invalid aggregation type.', status: 400 });
+            if (!Array.isArray(params)) throw new CustomError({ message: 'Params most be an array of objects', status: 400 });
+
             let query = this.db.collection(this.collection);
+
             if (params?.length) {
                 for await (const param of params) {
                     if (param.or) {
@@ -216,12 +215,14 @@ class Firestore {
                     };
                 };
             };
+
             const result = {};
+            fields.map(f => result[f] = {});
             for (const field of fields) {
                 const agg = {};
-                agg[field] = AggregateField[type](field);
+                types.map(t => { agg[t] = AggregateField[t](field); });
                 const res = await query.aggregate(agg).get();
-                result[field] = res.data()[field];
+                result[field] = res.data();
             };
             return result;
         } catch (error) {

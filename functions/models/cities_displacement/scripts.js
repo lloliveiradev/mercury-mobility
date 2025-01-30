@@ -2,6 +2,7 @@ module.exports = {
     create: `
     CREATE TABLE IF NOT EXISTS cities_displacement (
         rowid SERIAL PRIMARY KEY,
+
         city_id INTEGER NOT NULL,
         city VARCHAR(255) NOT NULL,
         state VARCHAR(2) NOT NULL,
@@ -11,10 +12,14 @@ module.exports = {
         avg_time FLOAT NULL,
         percent_above_1h FLOAT NULL,
         sensus_year INTEGER NOT NULL,
+
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        created_by VARCHAR(100) DEFAULT 'WEBSERVICE',
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_by VARCHAR(100) DEFAULT 'WEBSERVICE',
+        deleted BOOLEAN DEFAULT FALSE,
         deleted_at TIMESTAMP NULL,
-        edited_by VARCHAR(100) DEFAULT 'WEBSERVICE'
+        deleted_by VARCHAR(100) DEFAULT 'WEBSERVICE'
     );
     `,
     insert: `
@@ -27,9 +32,10 @@ module.exports = {
         qtd,
         avg_time,
         percent_above_1h,
-        sensus_year
+        sensus_year,
+        created_by
     )
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
     `,
     update: `
     UPDATE cities_displacement
@@ -43,13 +49,14 @@ module.exports = {
         percent_above_1h = COALESCE($8, percent_above_1h),
         sensus_year = COALESCE($9, sensus_year),
         updated_at = CURRENT_TIMESTAMP,
-        edited_by = COALESCE($10, edited_by)
+        updated_by = COALESCE($10, edited_by)
     WHERE rowid = $11;
     `,
     delete: `
     UPDATE cities_displacement
-    SET deleted_at = CURRENT_TIMESTAMP,
-        edited_by = COALESCE($2, edited_by)
+    SET deleted = TRUE,
+        deleted_at = CURRENT_TIMESTAMP,
+        deleted_by = COALESCE($2, edited_by)
     WHERE rowid = $1;
     `,
     selectAll: `

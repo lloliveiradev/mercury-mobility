@@ -1,23 +1,10 @@
 const { Client, Pool } = require('pg');
 
 class Postegre {
-    constructor(env) {
-        this.credencials = env.pg;
-        this.client = new Client(env.pg);
-    };
-
-    async newPool(pool) {
-        try {
-            if (pool) return pool;
-            pool = new Pool({
-                connectionString: this.credencials.connectionString,
-                ssl: this.credencials.ssl,
-            });
-            return pool;
-        } catch (error) {
-            console.error('@error-new-pool-pg', error.message);
-            throw error;
-        };
+    constructor(credentials) {
+        this.credentials = credentials;
+        this.client = new Client(this.credentials);
+        this.pool = new Pool(this.credentials);
     };
 
     async connect() {
@@ -35,10 +22,9 @@ class Postegre {
      * @param {?Array<String>} values 
      * @returns {Promise<Array<Object>>} results
      */
-    async query(query, values) {
-        const pool = await this.newPool();
+    async query(query, values = []) {
         try {
-            const results = (await pool.query(query, values || [])).rows;
+            const results = (await this.pool.query(query, values)).rows;
             return results;
         } catch (error) {
             console.error('@error-query-pg', error.message);

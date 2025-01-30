@@ -21,18 +21,19 @@ const { getDay } = require('date-fns');
 */
 function dateNow(date) {
     date = date ? new Date(date) : new Date();
+    console.log('@date', date);
     const utcDate = toZonedTime(date, 'America/New_York');
 
     return {
-        day: format(utcDate, "dd", { locale: timezone }),
-        date: format(utcDate, "yyyy-MM-dd", { locale: timezone }),
-        full_string: format(utcDate, "EEEE, MMMM d, yyyy, at h:mm a", { locale: timezone }),
-        hours: format(utcDate, "HH:mm a", { locale: timezone }),
-        month: format(utcDate, "MM", { locale: timezone }),
-        timestamp: new Date(utcDate.getTime() - utcDate.getTimezoneOffset() * 60000),
-        week_day: getDay(utcDate),
-        week_day_string: format(utcDate, "EE", { locale: timezone }),
-        year: format(utcDate, "yyyy", { locale: timezone }),
+        day: format(date, "dd", { locale: timezone.enUS }),
+        date: format(date, "yyyy-MM-dd", { locale: timezone.enUS }),
+        full_string: format(date, "EEEE, MMMM d, yyyy, 'at' h:mm a", { locale: timezone.enUS }),
+        hours: format(date, "hh:mm a", { locale: timezone.enUS }),
+        month: format(date, "MM", { locale: timezone.enUS }),
+        timestamp: new Date(date.getTime() - date.getTimezoneOffset() * 60000),
+        week_day: getDay(date),
+        week_day_string: format(date, "EEEE", { locale: timezone.enUS }),
+        year: format(date, "yyyy", { locale: timezone.enUS }),
     };
 };
 
