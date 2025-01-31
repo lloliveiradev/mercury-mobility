@@ -15,10 +15,9 @@ function pathToValue(data, path) {
     return data;
 };
 
-function localeUs(val) {
+function numberUs(val) {
     return Number(val || 0).toLocaleString('en-us', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 };
-
 
 function age(date) {
     var birthday = + new Date(date);
@@ -39,9 +38,12 @@ function shortenName(text, last) {
     if (!text) return '';
 
     const parts = text.split(' ');
-    let name = parts[0];
-    if (last) parts.length > 2 ? name += (' ' + parts[1].substr(0, 1) + '. ' + parts[parts.length - 1]) : parts.length > 1 ? name += ` ${parts[1]}` : name += '';
-    else parts.length > 1 ? name += (' ' + parts[1].substr(0, 1) + '.') : name += '';
+    let name = text;
+    parts.forEach((part, ix) => {
+        if (ix == 0) name = part;
+        else if (ix == parts.length - 1 && last && parts.length > 2) name += ` ${part}`;
+        else if (part.length > 2) name += ` ${part.substr(0, 1)}.`;
+    });
 
     return name;
 };
@@ -52,7 +54,7 @@ function capitalize(text) {
     text = text.replace(/\s\s+/g, ' ');
     let parts = text.trim().toLowerCase().split(' ');
     parts.forEach(part => {
-        formatted += `${typeof part[0] == 'string' ? part[0].toUpperCase() : part[0]}${part.substring(1)} `
+        formatted += `${typeof part[0] == 'string' ? part[0].toUpperCase() : part[0]}${part.substring(1)} `;
     });
     return formatted.trim();
 };
@@ -85,25 +87,6 @@ function validateEmail(email) {
     else return false;
 };
 
-Date.prototype.addDays = function (days) {
-    let date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-};
-
-Date.prototype.addHours = function (h) {
-    this.setTime(this.getTime() + (h * 60 * 60 * 1000));
-    return this;
-};
-
-Date.prototype.addMonths = function (months) {
-    let date = new Date(this.valueOf());
-    let d = date.getDate();
-    date.setMonth(date.getMonth() + +months);
-    if (date.getDate() != d) date.setDate(0);
-    return date;
-};
-
 /**
  * Valida campos obrigatorios	de um objeto
  * @param {Array<String>} fields 
@@ -132,12 +115,17 @@ function validateConditional(condition, fields, object, prefix = '') {
 
 function treatValues(val, key, numberExceptions) {
     try {
-        if (val.indexOf(',') > 0) return val.split(',');
-        if (val.indexOf(';') > 0) return val.split(';');
+        const lastKey = key.indexOf('.') > -1 ? key.split('.')[key.split('.').length - 1] : key;
+        if (val.indexOf(',') > 0) val = val.split(',');
+        if (val.indexOf(';') > 0) val = val.split(';');
+        if (Array.isArray(val)) {
+            if (!numberExceptions.includes(lastKey)) val.map(e => Number(e));
+            return val;
+        };
         if (
             !isNaN(parseInt(val)) &&
-            !key.includes('id') &&
-            !numberExceptions.includes(key)
+            !lastKey.includes('id') &&
+            !numberExceptions.includes(lastKey)
         ) return parseInt(val);
         if (val == 'true') return true;
         if (val == 'false') return false;
@@ -147,6 +135,37 @@ function treatValues(val, key, numberExceptions) {
         console.error(error);
         return val;
     };
+};
+
+function buildParamsFs(key, operation, value) {
+    const params = [];
+    if (key && key.includes("*")) {
+        if (key && operation && value) {
+            key = decodeURIComponent(key);
+            operation = decodeURIComponent(operation);
+            value = decodeURIComponent(value);
+
+            const keys = key.indexOf('*') > -1 ? key.split("*") : key;
+            const ops = operation.indexOf('*') > -1 ? operation.split("*") : operation;
+            const vals = value.indexOf('*') > -1 ? value.split("*") : value;
+
+            keys.forEach((el, ix) => {
+                params.push({
+                    key: el,
+                    operation: ops[ix] === "array" ? "array-contains" : ops[ix],
+                    value: treatValues(vals[ix], el, ['value', 'id_chamado']),
+                });
+            });
+        };
+    } else if (key && value) {
+        params.push({
+            key,
+            operation: operation ? operation == "array" ? "array-contains" : operation : '==',
+            value,
+        });
+    };
+    params.push({ key: "deleted", operation: "==", value: false });
+    return params;
 };
 
 const defaultFields = {
@@ -162,7 +181,7 @@ const defaultFields = {
 
 module.exports = {
     pathToValue,
-    localeUs,
+    localeUs: numberUs,
     age,
     isValid,
     shortenName,
@@ -174,5 +193,6 @@ module.exports = {
     validateRequired,
     validateConditional,
     treatValues,
-    defaultFields
+    defaultFields,
+    buildParamsFs
 };
