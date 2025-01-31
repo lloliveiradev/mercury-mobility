@@ -20,11 +20,11 @@
     }
   ],
   "hosting": {
-    "public": "public",
+    "public": "app/public",
     "ignore": [
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/public/**"
     ],
     "rewrites": [
       {

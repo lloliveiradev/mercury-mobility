@@ -21,9 +21,6 @@ const { getDay } = require('date-fns');
 */
 function dateNow(date) {
     date = date ? new Date(date) : new Date();
-    console.log('@date', date);
-    const utcDate = toZonedTime(date, 'America/New_York');
-
     return {
         day: format(date, "dd", { locale: timezone.enUS }),
         date: format(date, "yyyy-MM-dd", { locale: timezone.enUS }),
