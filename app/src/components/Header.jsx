@@ -8,7 +8,7 @@ function Header() {
             </div>
             <div className="flex max-w-1440 mx-auto">
                 <div className="header-logo flex-shrink-0 w-376 py-24 px-40 lg:block hidden" data-header-logo="">
-                    <a className="block h-24 max-w-200 -mt-8 mb-8 flex items-center" href="/doc/">
+                    <a className="block h-24 max-w-200 -mt-8 mb-8 flex items-center" href="#">
                         <Logo className={'size-50'} style={{ marginTop: '10px' }} />
                     </a>
                 </div>

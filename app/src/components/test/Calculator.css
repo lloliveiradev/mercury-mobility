@@ -1,0 +1,100 @@
+* {
+    font-family: sans-serif;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#result {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-blue {
+    background-color: #3b82f6;
+}
+
+.btn-red {
+    background-color: #ef4444;
+}
+
+.btn-green {
+    background-color: #10b981;
+}
+
+.btn-yellow {
+    background-color: #f59e0b;
+}
+
+.btn-gray {
+    background-color: #6b7280;
+}
+
+.btn-dark-gray {
+    background-color: #374151;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}

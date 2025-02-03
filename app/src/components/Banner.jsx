@@ -14,28 +14,6 @@ function Banner() {
                         <p className="text-grey-700 mb-24 leading-normal">
                             Get a full overview of the basic settings that will take your search to the next level.
                         </p>
-                        <div className="flex -m-4 xl:flex-row flex-col">
-                            <a className="inline-block btn-skeuomorphic btn-skeuomorphic-blue sm:py-8 py-16 px-24 m-4 text-center whitespace-no-wrap" data-segment-message="Clicked Try Interactive Tutorial" data-segment-source="Hero" data-segment="try-interactive-tutorial" href="/doc/onboarding/">
-                                <div className="flex items-center justify-center">
-                                    <span className="flex items-center h-16 w-auto mr-8 py-2 flex-grow-0 flex-shrink-0 fill-current">
-                                        <svg className="block h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12"><path d="M5.83,5.29A.23.23,0,0,1,6,5.6s0,0,0,.05L2.3,11.88a.25.25,0,0,1-.47-.16l.54-4.24L.17,6.72A.26.26,0,0,1,0,6.4s0,0,0-.05L3.7.13a.25.25,0,0,1,.47.15L3.63,4.52Z"></path></svg>
-                                    </span>
-                                    <span className="inline-block pt-4 pb-2">
-                                        Try interactive tutorial
-                                    </span>
-                                </div>
-                            </a>
-                            <a className="inline-block btn-skeuomorphic sm:py-8 py-16 px-24 m-4 text-center whitespace-no-wrap km-doc-onboarding-video-landing-page" data-action="click->app#openModal click@window->app#closeAllModalsOnClickOutside" data-modal-target="video" data-segment-message="Clicked Watch Video" data-segment-source="Landing (hero)" data-segment="open-algolia-video" href="https://www.youtube.com/watch?v=yA4KISBv_88" rel="nofollow" target="_blank">
-                                <div className="flex items-center justify-center">
-                                    <span className="flex items-center h-16 w-auto mr-8 py-2 flex-grow-0 flex-shrink-0 fill-current">
-                                        <svg className="block h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 10"><polygon points="0 0 0 10 8 5 0 0"></polygon></svg>
-                                    </span>
-                                    <span className="inline-block pt-4 pb-2">
-                                        Algolia in 3 steps
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
                     </div>
                     <div className="flex-grow-0 flex-shrink-0 sm:w-288 w-296 -mb-176 sm:block hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 306 414">
