@@ -1,28 +1,22 @@
-const CustomError = require("../../utils/customError");
+const CustomError = require("../../utils/customError.js");
 const JSONObjectMerge = require("json-object-merge");
-const Postegre = require("../../repository/postgree");
-const Firestore = require("../../repository/firestore");
+const Postegre = require("../../repository/postgree.js");
+const Firestore = require("../../repository/firestore.js");
 const scripts = require("./scripts.js");
 const { defaultFields } = require("../../utils/utils.js");
-const { validateContract } = require("../../utils/validations");
+const { validateContract } = require("../../utils/validations.js");
 
-class Displacement {
+class City {
     constructor(env) {
-        this.collection = 'cities_displacement';
+        this.collection = 'cities';
         this.pg = new Postegre(env.pg);
         this.fs = new Firestore(env.fs, this.collection);
 
         this.contract = {
-            city_id: { required: true, type: 'number' },
-            city: { required: true, type: 'string', max: 255 },
-            state: { required: true, type: 'string', max: 2 },
+            code: { required: true, type: 'number' },
             country: { required: true, type: 'string', max: 50 },
-            time_desc: { required: true, type: 'string', max: 100 },
-            qtd: { required: true, type: 'number' },
-            avg_time: { required: false, type: 'number' },
-            percent_above_1h: { required: false, type: 'number' },
-            sensus_year: { required: true, type: 'number' },
-            edited_by: { required: false, type: 'string', max: 100 },
+            name: { required: true, type: 'string', max: 255 },
+            state: { required: true, type: 'string', max: 2 },
         };
     };
 
@@ -41,7 +35,7 @@ class Displacement {
             const obj = this.model(data);
             await this.fs.add(obj, user);
         } catch (error) {
-            throw new CustomError({ message: `@displacement-add: ${error.message}`, status: 500 });
+            throw new CustomError({ message: `@city-add: ${error.message}`, status: 500 });
         };
     };
     async insert(data) {
@@ -51,7 +45,7 @@ class Displacement {
             const values = Object.values(this.model(data));
             await this.pg.query(scripts.insert, values);
         } catch (error) {
-            throw new CustomError({ message: `@displacement-insert: ${error.message}`, status: 500 });
+            throw new CustomError({ message: `@city-insert: ${error.message}`, status: 500 });
         };
     };
 
@@ -76,7 +70,7 @@ class Displacement {
             return records;
         } catch (error) {
             if (error.message == "Record not found") return false;
-            throw new CustomError({ message: `@displacement-get: ${error.message}`, status: 500 });
+            throw new CustomError({ message: `@city-get: ${error.message}`, status: 500 });
         };
     };
     async select(scriptName, values) {
@@ -84,7 +78,7 @@ class Displacement {
             const rows = await this.pg.query(scripts[scriptName], values);
             return rows;
         } catch (error) {
-            throw new CustomError({ message: `@displacement-select: ${error.message}`, status: 500 });
+            throw new CustomError({ message: `@city-select: ${error.message}`, status: 500 });
         };
     };
 
@@ -105,7 +99,7 @@ class Displacement {
             const obj = this.model(data);
             await this.fs.set(data.rowid, obj, user, merge);
         } catch (error) {
-            throw new CustomError({ message: `@displacement-set: ${error.message}`, status: 500 });
+            throw new CustomError({ message: `@city-set: ${error.message}`, status: 500 });
         };
     };
     async update(data) {
@@ -116,7 +110,7 @@ class Displacement {
             const values = Object.values(this.model(data));
             await this.pg.query(scripts.update, values);
         } catch (error) {
-            throw new CustomError({ message: `@displacement-update: ${error.message}`, status: 500 });
+            throw new CustomError({ message: `@city-update: ${error.message}`, status: 500 });
         };
     };
 
@@ -133,14 +127,14 @@ class Displacement {
         try {
             await this.fs.delete(rowid, user, real);
         } catch (error) {
-            throw new CustomError({ message: `@displacement-remove: ${error.message}`, status: 500 });
+            throw new CustomError({ message: `@city-remove: ${error.message}`, status: 500 });
         };
     };
     async delete(values) {
         try {
             await this.pg.query(scripts.delete, values);
         } catch (error) {
-            throw new CustomError({ message: `@displacement-delete: ${error.message}`, status: 500 });
+            throw new CustomError({ message: `@city-delete: ${error.message}`, status: 500 });
         };
     };
 
@@ -148,30 +142,20 @@ class Displacement {
     /**
      * Format default object
      * @param {Object} data 
-     * @param {Number} data.city_id integer
-     * @param {String} data.city varchar(255)
-     * @param {String} data.state varchar(2)
+     * @param {Number} data.code integer
      * @param {String} data.country varchar(50)
-     * @param {String} data.time_desc varchar(100)
-     * @param {Number} data.qtd integer
-     * @param {Number} data.avg_time float
-     * @param {Number} data.percent_above_1h float
-     * @param {Number} data.sensus_year integer
+     * @param {String} data.name varchar(255)
+     * @param {String} data.state varchar(2)
      * 
      * @returns {Object} formatted
      */
     model(data) {
         const obj = {
             ...defaultFields,
-            city_id: null,
-            city: null,
-            state: null,
+            code: null,
             country: null,
-            time_desc: null,
-            qtd: null,
-            avg_time: null,
-            percent_above_1h: null,
-            sensus_year: null,
+            name: null,
+            state: null,
         };
         const formatted = JSONObjectMerge.default(obj, data);
 
@@ -188,4 +172,4 @@ class Displacement {
     };
 };
 
-module.exports = Displacement;
+module.exports = City;

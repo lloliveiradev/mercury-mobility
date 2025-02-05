@@ -1,8 +1,9 @@
-const Displacement = require("../models/cities_displacement");
+const City = require("../models/city/index.js");
+const Displacement = require("../models/city_displacement/index.js");
 const Postegre = require("../repository/postgree");
 const credentials = require('../../firebase/credentials.json');
 const env = require("../../engine/env.js");
-const scripts = require("../models/cities_displacement/scripts.js");
+const scripts = require("../models/city_displacement/scripts.js");
 
 const user = { rowid: '0097', name: 'WebService' };
 const { getFirestore } = require('firebase-admin/firestore');
@@ -15,7 +16,7 @@ async function loadDisplacement() {
         // const db = new Postegre(env);
         // await db.query(scripts.create);
 
-        const rows = (require("../../database/cities_displacement.json")).slice(10001, 20000);
+        const rows = (require("../../database/cities_displacement.json")).slice(30000);
         const cls = new Displacement(env);
         let batchNum = 1;
         const max = 10000;
@@ -50,4 +51,26 @@ async function loadDisplacement() {
     };
 };
 
-loadDisplacement();
+async function loadCities() {
+    try {
+        const rows = require("../../database/cities_displacement.json");
+        const codes = Array.from(new Set(rows.map(e => e.code)));
+        const cities = codes.map(code => {
+            const row = rows.find(e => e.code === code);
+            return {
+                code: Number(row.code),
+                country: 'BRASIL',
+                name: row.city.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ""),
+                state: row.state.toUpperCase(),
+            };
+        });
+        await Promise.all(cities.map(async (city) => {
+            const cls = new City(env);
+            await cls.create('fs', { data: city, user });
+        }));
+    } catch (error) {
+        console.error('@error-load-cities', error.message);
+    };
+};
+
+loadCities();
